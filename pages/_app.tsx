@@ -1,13 +1,21 @@
-import Navbar from '../components/navbar'
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import Navbar from '../components/navbar';
+import type { AppProps } from 'next/app';
+import AppContext from '../components/AppContext';
+import { useState } from 'react';
+import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
+
+  const [session,setSession] = useState();
+
   return (
-  <div className='bg-white min-h-screen'>
-    <Navbar />
-    <Component {...pageProps} />
-  </div>)
+    <AppContext.Provider value={{session,setSession}}>
+      <div className=" min-h-screen">
+        <Navbar />
+        <Component {...pageProps} />
+      </div>
+    </AppContext.Provider>
+  );
 }
 
-export default MyApp
+export default MyApp;
