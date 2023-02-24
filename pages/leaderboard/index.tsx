@@ -2,7 +2,7 @@ import { FC, useContext } from 'react';
 import useSWR from 'swr';
 import UserDetails from '../../components/userDetails';
 import type { LeaderboardData } from '../../types';
-import AppContext from '../../components/AppContext';
+
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
