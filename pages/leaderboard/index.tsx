@@ -16,7 +16,7 @@ const Leaderboard: FC = () => {
   if (error) return <div>Failed to load</div>;
   if (isLoading) return <div>Loading...</div>;
   if (!data) return null;
-  const leaderboardData = data.leaderboard ? data.leaderboard : null;
+  const leaderboardData = data.leaderboard;
 
   const sortedData = leaderboardData.sort((a, b) => b.score - a.score);
 
